@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Placeholder } from '@/components/placeholder'
 import { Button } from '@/components/ui/button'
 import { initialTickets } from '@/data'
+import { TicketItem } from '@/features/tickets/components/ticket-item'
 import { ticketsPath } from '@/paths'
 
 type TicketDetailsPageProps = {
@@ -31,13 +32,11 @@ const TicketDetailsPage = async ({ params }: TicketDetailsPageProps) => {
     }
 
     return (
-        <div>
-            <h2 className="text-lg">
-                {ticket?.title}
-            </h2>
-            <p>
-                {ticket?.content}
-            </p>
+        <div className='flex justify-center animate-fade-from-top'>
+            <TicketItem
+                ticket={ticket}
+                isDetail
+            />
         </div>
     )
 }
